@@ -1,31 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class JumpTutorial : MonoBehaviour
+public class OnDeath : MonoBehaviour
 {
     [SerializeField] private TextMeshPro textBox;
+
+    // Update is called once per frame
 
     private void Start()
     {
         textBox.enabled = false;
     }
-
-    private void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            textBox.enabled = false;
-        }
-
-
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        textBox.enabled = true;
+       //player dead
+        
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //respawn player
+
+            textBox.enabled = false;
+        }
     }
 }
