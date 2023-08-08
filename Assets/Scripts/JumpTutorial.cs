@@ -20,8 +20,6 @@ public class JumpTutorial : MonoBehaviour
         {
             textBox.enabled = false;
         }
-
-
     }
 
     private void OnTriggerEnter(Collider other)
