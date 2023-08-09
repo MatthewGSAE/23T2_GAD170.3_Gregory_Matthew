@@ -5,6 +5,7 @@ using UnityEngine.Pool;
 
 public class PlayerCharacter : MonoBehaviour
 {
+    [SerializeField] public GameManager gameManager;
     // movement variable
     private float movementSpeed = 12f;
     private float yawSpeed = 2.0f;
@@ -25,10 +26,9 @@ public class PlayerCharacter : MonoBehaviour
 
     private float jumpHeight = 2f;
 
-    // death text box
-    [SerializeField] private TextMeshPro textBox;
-
-    public bool isAlive = true;
+    private bool isSprinting = false;
+    private float sprintSpeed = 14f;
+    private float baseSpeed = 7f;
 
     private void Start()
     {
@@ -36,14 +36,14 @@ public class PlayerCharacter : MonoBehaviour
         {
             controller = GetComponent<CharacterController>();
         }
-
-        textBox.enabled = false;
     }
 
     private void Update()
     {
-        if (isAlive)
+        if (gameManager.isAlive)
         {
+            isSprinting = Input.GetKey(KeyCode.LeftShift);
+
             // These lines let the script rotate the player based on the mouse moving
             yawAngle += yawSpeed * Input.GetAxis("Mouse X");
             pitchAngle -= pitchSpeed * Input.GetAxis("Mouse Y");
@@ -75,31 +75,8 @@ public class PlayerCharacter : MonoBehaviour
             // This takes the Left/Right and Forward/Back values to build a vector
             Vector3 move = transform.right * x + transform.forward * z;
 
-            // Finally, it applies that vector it just made to the character
-            controller.Move(move * movementSpeed * Time.deltaTime + velocity * Time.deltaTime);
+            float currentSpeed = isSprinting ? sprintSpeed : baseSpeed;
+            controller.Move(move * currentSpeed * Time.deltaTime + velocity * Time.deltaTime);
         }
     }
-
-   // private void OnCollisionEnter(Collision collision)
-   // {
-       // if (collision.gameObject.CompareTag("Ground"))
-      //  {
-            //do nothing
-       // }
-      //  else
-       // {
-         //   isAlive = false;
-
-          //  textBox.enabled = true;
-
-         //   if (Input.GetKeyDown(KeyCode.R))
-          //  {
-                //respawn player
-
-              //  textBox.enabled = false;
-         //   }
-      //  }
-   // }
 }
-
-

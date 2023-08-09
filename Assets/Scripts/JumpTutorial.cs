@@ -6,11 +6,11 @@ using UnityEngine;
 
 public class JumpTutorial : MonoBehaviour
 {
-    [SerializeField] private TextMeshPro textBox;
+    [SerializeField] private TextMeshPro jumptextBox;
 
     private void Start()
     {
-        textBox.enabled = false;
+        jumptextBox.enabled = false;
     }
 
     private void Update()
@@ -18,12 +18,12 @@ public class JumpTutorial : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            textBox.enabled = false;
+            jumptextBox.enabled = false;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        textBox.enabled = true;
+        jumptextBox.enabled = true;
     }
 }
