@@ -5,7 +5,6 @@ using UnityEngine.Pool;
 
 public class PlayerCharacter : MonoBehaviour
 {
-    [SerializeField] public GameManager gameManager;
     // movement variable
     private float movementSpeed = 12f;
     private float yawSpeed = 2.0f;
@@ -30,6 +29,8 @@ public class PlayerCharacter : MonoBehaviour
     private float sprintSpeed = 14f;
     private float baseSpeed = 7f;
 
+    public bool isAlive = true;
+
     private void Start()
     {
         if (controller == null)
@@ -40,7 +41,7 @@ public class PlayerCharacter : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.isAlive)
+        if(isAlive == true)
         {
             isSprinting = Input.GetKey(KeyCode.LeftShift);
 
@@ -77,6 +78,6 @@ public class PlayerCharacter : MonoBehaviour
 
             float currentSpeed = isSprinting ? sprintSpeed : baseSpeed;
             controller.Move(move * currentSpeed * Time.deltaTime + velocity * Time.deltaTime);
-        }
+        }  
     }
 }

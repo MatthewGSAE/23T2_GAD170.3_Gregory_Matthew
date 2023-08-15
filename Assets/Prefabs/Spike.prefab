@@ -591,6 +591,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5584816367064231922}
+  - component: {fileID: 1000992718}
+  - component: {fileID: 1000992719}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Untagged
@@ -620,6 +622,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1000992718
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169925970131280427}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6863203, y: 8.879519, z: 0.6438494}
+  m_Center: {x: 0.010131955, y: -0.4245879, z: -0.011462688}
+--- !u!114 &1000992719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6169925970131280427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba20d8276ab883b4e918f294845f20d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playercharacter: {fileID: 0}
+  textBox: {fileID: 0}
 --- !u!1 &6911786245657405575
 GameObject:
   m_ObjectHideFlags: 0
